@@ -118,12 +118,22 @@ public class BigVigenere {
         String claveTexto = scanner.nextLine();
         BigVigenere cifrador = new BigVigenere(claveTexto);
 
-        System.out.print("Ingrese un mensaje a cifrar: ");
-        String mensaje = scanner.nextLine();
-        String mensajeCifrado = cifrador.encrypt(mensaje);
-        System.out.println("Mensaje cifrado: " + mensajeCifrado);
+        System.out.println("Ingrese si desea Cifrar o Descifrar un mensaje.");
+        System.out.println("Cifrar: C/c");
+        System.out.println("Descifrar: D/d");
+        String eleccion = scanner.nextLine() ;
 
-        System.out.println("Mensaje descifrado: " + cifrador.decrypt(mensajeCifrado));
+        if(eleccion.equals("C") || eleccion.equals("c")){
+            System.out.print("Ingrese un mensaje a cifrar: ");
+            String mensaje = scanner.nextLine();
+            String mensajeCifrado = cifrador.encrypt(mensaje);
+            System.out.println("Mensaje cifrado: " + mensajeCifrado);
+        } else if(eleccion.equals("D") || eleccion.equals("d")){
+            System.out.print("Ingrese un mensaje a descifrar: ");
+            String mensaje = scanner.nextLine();
+            String mensajeDescifrado = cifrador.decrypt(mensaje);
+            System.out.println("Mensaje descifrado: " + mensajeDescifrado);
+        }
 
         System.out.print("Ingrese una posición para búsqueda óptima: ");
         int posicion = scanner.nextInt();
