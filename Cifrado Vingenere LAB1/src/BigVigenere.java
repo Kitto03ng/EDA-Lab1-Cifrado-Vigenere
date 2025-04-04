@@ -37,6 +37,11 @@ public class BigVigenere {
                 continue;
             }
 
+            if (caracterMensaje == '\n') {
+                cifrado.append('\n');
+                continue;
+            }
+
             char caracterClave = clave.charAt(j % clave.length());
             j++;
 
@@ -61,6 +66,11 @@ public class BigVigenere {
 
             if (caracterCifrado == ' ') {
                 descifrado.append(' ');
+                continue;
+            }
+
+            if (caracterCifrado == '\n') {
+                descifrado.append('\n');
                 continue;
             }
 
@@ -123,14 +133,31 @@ public class BigVigenere {
         System.out.println("Descifrar: D/d");
         String eleccion = scanner.nextLine() ;
 
+        StringBuilder sb = new StringBuilder();
+        String linea;
+
         if(eleccion.equals("C") || eleccion.equals("c")){
-            System.out.print("Ingrese un mensaje a cifrar: ");
-            String mensaje = scanner.nextLine();
+            System.out.print("Ingrese un mensaje a cifrar (escribe 'EOF' en una línea nueva para finalizar): ");
+            while (true) {
+                linea = scanner.nextLine();
+                if (linea.equals("EOF")) {
+                    break;
+                }
+                sb.append(linea).append("\n");
+            }
+            String mensaje = sb.toString();
             String mensajeCifrado = cifrador.encrypt(mensaje);
             System.out.println("Mensaje cifrado: " + mensajeCifrado);
         } else if(eleccion.equals("D") || eleccion.equals("d")){
-            System.out.print("Ingrese un mensaje a descifrar: ");
-            String mensaje = scanner.nextLine();
+            System.out.print("Ingrese un mensaje a descifrar (escribe 'EOF' en una línea nueva para finalizar: ");
+            while (true) {
+                linea = scanner.nextLine();
+                if (linea.equals("EOF")) {
+                    break;
+                }
+                sb.append(linea).append("\n");
+            }
+            String mensaje = sb.toString();
             String mensajeDescifrado = cifrador.decrypt(mensaje);
             System.out.println("Mensaje descifrado: " + mensajeDescifrado);
         }
@@ -142,4 +169,3 @@ public class BigVigenere {
         scanner.close();
     }
 }
-
