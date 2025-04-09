@@ -10,7 +10,7 @@ public class BigVigenere {
         generarAlfabeto();
     }
 
-    private void generarAlfabeto() {
+    private void generarAlfabeto() { //O(1)
         String caracteres = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";
         alfabeto = new char[64][64];
         for (int i = 0; i < 64; i++) {
@@ -20,12 +20,12 @@ public class BigVigenere {
         }
     }
 
-    private int getIndex(char c) {
+    private int getIndex(char c) { //O(1)
         String caracteres = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";
         return caracteres.indexOf(c);
     }
 
-    public String encrypt(String mensaje) {
+    public String encrypt(String mensaje) { //O(n)
         long inicio = System.currentTimeMillis();
         StringBuilder cifrado = new StringBuilder();
         int j = 0;
@@ -60,7 +60,7 @@ public class BigVigenere {
         return cifrado.toString();
     }
 
-    public String decrypt(String mensajeCifrado) {
+    public String decrypt(String mensajeCifrado) { //O(n)
         long inicio = System.currentTimeMillis();
         StringBuilder descifrado = new StringBuilder();
         int j = 0;
@@ -106,7 +106,7 @@ public class BigVigenere {
         return descifrado.toString();
     }
 
-    public char optimalSearch(int posicion) {
+    public char optimalSearch(int posicion) { //O(p) p = posicion
         boolean[][] visitado = new boolean[64][64];
         int[] dx = {0, 1, 0, -1};
         int[] dy = {1, 0, -1, 0};
@@ -129,7 +129,7 @@ public class BigVigenere {
         return alfabeto[x][y];
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { //O(n + p)
         System.out.print("Ingrese la clave de cifrado: ");
         String claveTexto = scanner.nextLine();
         BigVigenere cifrador = new BigVigenere(claveTexto);
