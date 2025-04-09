@@ -26,6 +26,7 @@ public class BigVigenere {
     }
 
     public String encrypt(String mensaje) {
+        long inicio = System.currentTimeMillis();
         StringBuilder cifrado = new StringBuilder();
         int j = 0;
 
@@ -54,10 +55,13 @@ public class BigVigenere {
                 cifrado.append(alfabeto[indiceMensaje][indiceClave]);
             }
         }
+        long fin = System.currentTimeMillis();
+        System.out.println("Tiempo: " + ((fin - inicio)) + " ms");
         return cifrado.toString();
     }
 
     public String decrypt(String mensajeCifrado) {
+        long inicio = System.currentTimeMillis();
         StringBuilder descifrado = new StringBuilder();
         int j = 0;
 
@@ -97,6 +101,8 @@ public class BigVigenere {
                 descifrado.append(alfabeto[indiceMensaje][0]);
             }
         }
+        long fin = System.currentTimeMillis();
+        System.out.println("Tiempo: " + ((fin - inicio)) + " ms");
         return descifrado.toString();
     }
 
