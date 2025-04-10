@@ -1,4 +1,4 @@
-//Para la realizacion de este codigo no se ha maltratado a ningun animal y ningun do while ha sido utilizado ulaaaaa//
+//Para la realizacion de este codigo no se ha maltratado a ningun animal y ningun do while ha sido utilizado//
 import java.util.Scanner;
 
 public class BigVigenere {
