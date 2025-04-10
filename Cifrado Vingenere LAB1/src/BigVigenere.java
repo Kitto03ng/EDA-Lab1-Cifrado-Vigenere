@@ -60,7 +60,7 @@ public class BigVigenere {
         return cifrado.toString();
     }
 
-    public String decrypt(String mensajeCifrado) { //O(2n)
+    public String decrypt(String mensajeCifrado) { //O(n)
         long inicio = System.currentTimeMillis();
         StringBuilder descifrado = new StringBuilder();
         int j = 0;
